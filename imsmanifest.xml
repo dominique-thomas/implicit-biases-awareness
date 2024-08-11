@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="SCO-2004-4th" version="1.0"
+          xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3"
+          xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3"
+          xmlns:imsss="http://www.imsglobal.org/xsd/imsss"
+          xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd
+                              http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd
+                              http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd
+                              http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd
+                              http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd">
+    <metadata>
+        <schema>ADL SCORM</schema>
+        <schemaversion>2004 4th Edition</schemaversion>
+        <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+            <general>
+                <title>
+                    <string>Implicit Biases Awareness Training</string>
+                </title>
+                <description>
+                    <string>
+                    The purpose of this training is to increase awareness of implicit or unconscious biases to better promote inclusivity and empathy towards others.
+                    This training is designed to be completed a self-paced corporate environment; however, it can also serve as a supplementary tool in an instructor-led environment.          
+                    The training content is provided as-is and free to use.
+
+                    The website, course content, videos, and resources were designed and developed by Dominique Thomas.
+
+                    The last update for this training was made on 06/03/2024.
+                    </string>
+                </description>
+            </general>
+        </lom>
+    </metadata>
+    
+    <organizations default="ORG-1">
+        <organization identifier="ORG-1">
+            <title>Implicit Biases Awareness Training</title>
+            <item identifier="ITEM-1" identifierref="RES-1">
+                <title>Implicit Biases Awareness Training</title>
+            </item>
+        </organization>
+    </organizations>
+    
+    <resources>
+        <!-- SCO Resources -->
+        <resource identifier="RES-1" type="webcontent" adlcp:scormType="sco" href="index.html">
+            <file href="index.html" />
+            <file href="certificate.html" />
+            <file href="css/style.css" />
+            <file href="js/certificate.js" />
+            <file href="js/index.js" />
+            <file href="js/SCORM_API_wrapper.js" />
+            <file href="image.jpg" />
+        </resource>
+
+        <!-- Additional Assets -->
+         <resource identifier="RES-2" type="webcontent" adlcp:scormType="asset">
+            <file href="resources/Implicit_Biases_Awareness_Training_Transcript.pdf" />
+            <file href="resources/Recognizing_Implicit_Biases_Job_Aid.pdf" />
+        </resource>
+    </resources>
+</manifest>
