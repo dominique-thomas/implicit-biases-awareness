@@ -62,30 +62,36 @@ const menuData = [
         data : [
             {
                 id : "L01_000",
+                subtitle: "Objectives",
+                type : "objective",
+                media : "obj_001"
+            },
+            {
+                id : "L01_001",
                 subtitle: "Exploring the Origins and Influences of Implicit Biases",
                 type : "video",
                 media : "vGs8t1wQq-E"
             },
             {
-                id : "L01_001",
+                id : "L01_002",
                 subtitle: "Self Reflection Questions",
                 type : "reflection",
                 media : "ref_001"
             },
             {
-                id : "L01_002",
+                id : "L01_003",
                 subtitle: "Knowledge Check 1",
                 type : "quiz",
                 media : "lsn_0_question_0"
             },
             {
-                id : "L01_003",
+                id : "L01_004",
                 subtitle: "Knowledge Check 2",
                 type : "quiz",
                 media : "lsn_0_question_1"
             },
             {
-                id : "L01_004",
+                id : "L01_005",
                 subtitle: "Knowledge Check 3",
                 type : "quiz",
                 media : "lsn_0_question_2"
@@ -102,36 +108,42 @@ const menuData = [
         data : [
             {
                 id : "L02_000",
+                subtitle: "Objectives",
+                type : "objective",
+                media : "obj_002"
+            },
+            {
+                id : "L02_001",
                 subtitle: "Recongizing Types of Implicit Biases",
                 type : "video",
                 media : "iedDxBLd8Lw"
             },
             {
-                id : "L02_001",
+                id : "L02_002",
                 subtitle: "Self Reflection Questions",
                 type : "reflection",
                 media : "ref_002"
             },
             {
-                id : "L02_002",
+                id : "L02_003",
                 subtitle: "Knowledge Check 1",
                 type : "quiz",
                 media : "lsn_1_question_0"
             },
             {
-                id : "L02_003",
+                id : "L02_004",
                 subtitle: "Knowledge Check 2",
                 type : "quiz",
                 media : "lsn_1_question_1"
             },
             {
-                id : "L02_004",
+                id : "L02_005",
                 subtitle: "Knowledge Check 3",
                 type : "quiz",
                 media : "lsn_1_question_2"
             },
             {
-                id : "L02_005",
+                id : "L02_006",
                 subtitle: "Knowledge Check 4",
                 type : "quiz",
                 media : "lsn_1_question_3"
@@ -148,30 +160,36 @@ const menuData = [
         data : [
             {
                 id : "L03_000",
+                subtitle: "Objectives",
+                type : "objective",
+                media : "obj_003"
+            },
+            {
+                id : "L03_001",
                 subtitle: "Strategies for Confronting Personal Biases",
                 type : "video",
                 media : "KNPBO81Nq5c"
             },
             {
-                id : "L03_001",
+                id : "L03_002",
                 subtitle: "Self Reflection Questions",
                 type : "reflection",
                 media : "ref_003"
             },
             {
-                id : "L03_002",
+                id : "L03_003",
                 subtitle: "Knowledge Check 1",
                 type : "quiz",
                 media : "lsn_2_question_0"
             },
             {
-                id : "L03_003",
+                id : "L03_004",
                 subtitle: "Knowledge Check 2",
                 type : "quiz",
                 media : "lsn_2_question_1"
             },
             {
-                id : "L03_004",
+                id : "L03_005",
                 subtitle: "Knowledge Check 3",
                 type : "quiz",
                 media : "lsn_2_question_2"
@@ -691,6 +709,37 @@ const glossaryData = [
     }
 ];
 
+//Stores the lesson objectives
+const lsnObjectives = [
+    {
+        id: "obj_001",
+        data :  [
+                    "Define implicit biases and their origins",
+                    "Identify common types of implicit biases and their impact",
+                    "Reflect on how implicit biases manifest in everyday situations and their influence on decision-making processes"
+                ]
+    },
+
+    {
+        id: "obj_002",
+        data :  [
+                    "Identify and define different types of implicit biases",
+                    "Reflect on personal experiences where different types of implicit biases were present",
+                    "Identify how personal biases might influence behaviors and decisions"
+                ]
+       
+    },
+    
+    {
+        id: "obj_003",
+        data :  [
+                    "dentify and define different strategies to combat implicit biases",
+                    "Define the importance of each strategy in mitigating biases",
+                    "Reflect on how applying these strategies can lead to more inclusive environments"
+                ]
+    }
+];
+
 //Stores the reflection questions
 const reflectionQuestions = [
     {
@@ -1162,6 +1211,11 @@ $(document).on("click" , ".menuBtn", function(){
             $("#videosContainer").removeClass("hidden");
             loadVideo(media);
         break;
+        case "objective":
+            $("#lessonObjectives").removeClass("hidden");
+            generateLessonObjectives();
+            setSlideComplete();
+        break;
         case "reflection":
             $("#reflectionQuestions").removeClass("hidden");
             generateReflectionQuestions();
@@ -1362,6 +1416,31 @@ function getExtension(str){
     }
 }
 
+//Used to dynamically generate the lesson objectives based on the active slide
+function generateLessonObjectives(){
+    $("#lessonObjectives").empty();
+
+    const menuObj = getMenuData();
+    const lessonObj = getLessonObjectives(menuObj.media);
+
+    let p = $("<p>",{
+        html : `Take a moment to review the learning objectives for this lesson. When you're done, click the Next Slide button to proceed.<br><hr>`
+    });    
+
+    let ol = $("<ol>");
+
+    lessonObj.data.forEach(function(element){
+        let li = $("<li>", {
+            text : element,
+            class : "objectives-li"
+        });
+
+        ol.append(li);
+    });
+
+    $("#lessonObjectives").append(p, ol);
+}
+
 //Used to dynamically generate the reflection questions based on the active slide
 function generateReflectionQuestions(){
     $("#reflectionQuestions").empty();
@@ -1387,6 +1466,21 @@ function generateReflectionQuestions(){
     });
 
     $("#reflectionQuestions").append(p, ol);
+}
+
+//Helper function that returns the lesson objectives object
+function getLessonObjectives(id){
+
+    let obj = {};
+
+    lsnObjectives.forEach(function(element){
+        const currentId = element.id;
+        if(currentId === id){
+            obj =  element;
+        }
+    });
+
+    return obj;
 }
 
 //Helper function that returns the reflection question object
@@ -1757,6 +1851,7 @@ function onPlayerStateChange(event) {
 //Hides the video, quiz, and test divs
 function hideMediaDivs(){
   $("#videosContainer").addClass("hidden");
+  $("#lessonObjectives").addClass("hidden");
   $("#reflectionQuestions").addClass("hidden");
   $("#testOverview").addClass("hidden");
   $("#quizQuestions").addClass("hidden");

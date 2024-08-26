@@ -263,10 +263,10 @@ ul.CTAs a {
     font-size: 13px;
 }
 
-.reflection-li{
+.reflection-li, .objectives-li{
     padding-bottom: 20px;
 }
-.reflection-li:last-child {
+.reflection-li:last-child, .objectives-li:last-child {
     padding-bottom: 0;
 }
 
