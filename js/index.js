@@ -1,4 +1,9 @@
-
+/**
+ * Project: Implicit Biases Awareness Training
+ * Description: Main JavaScript file for handling user flow, module state, and video interaction on the training homepage.
+ * Author: Dominique Thomas (github.com/dominique-thomas)
+ * License: Shared publicly for demonstration purposes only. Reuse or redistribution not permitted without permission.
+ */
 //----------------------------------------
 //          Variable declarations
 //----------------------------------------
