@@ -1,3 +1,9 @@
+/*
+  Project: Implicit Biases Awareness Training
+  Description: Stylesheet for layout, navigation, and responsive UI of the training module.
+  Author: Dominique Thomas (github.com/dominique-thomas)
+  License: Shared publicly for demonstration purposes only. Reuse or redistribution not permitted without permission.
+*/
 @charset "UTF-8";
 @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700";
 :root{
