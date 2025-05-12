@@ -1,3 +1,9 @@
+/**
+ * Project: Implicit Biases Awareness Training
+ * Description: JavaScript functionality for generating and displaying the certificate of completion, including user name and completion status.
+ * Author: Dominique Thomas (github.com/dominique-thomas)
+ * License: Shared publicly for demonstration purposes only. Reuse or redistribution not permitted without permission.
+ */
 //----------------------------------------
 //          Variable declarations
 //----------------------------------------
